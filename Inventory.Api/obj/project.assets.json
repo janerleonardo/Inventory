@@ -3195,11 +3195,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Project\\inventory\\Inventory.Backend\\Inventory.Api\\Inventory.Api.csproj",
+      "projectUniqueName": "c:\\Project\\inventory\\Inventory.Backend\\Inventory.Api\\Inventory.Api.csproj",
       "projectName": "Inventory.Api",
-      "projectPath": "C:\\Project\\inventory\\Inventory.Backend\\Inventory.Api\\Inventory.Api.csproj",
+      "projectPath": "c:\\Project\\inventory\\Inventory.Backend\\Inventory.Api\\Inventory.Api.csproj",
       "packagesPath": "C:\\Users\\jt\\.nuget\\packages\\",
-      "outputPath": "C:\\Project\\inventory\\Inventory.Backend\\Inventory.Api\\obj\\",
+      "outputPath": "c:\\Project\\inventory\\Inventory.Backend\\Inventory.Api\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\jt\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -61,3 +61,4 @@ C:\Project\inventory\Inventory.Backend\Inventory.Infrastructure\bin\Debug\net10.
 C:\Project\inventory\Inventory.Backend\Inventory.Infrastructure\obj\Debug\net10.0\Inventory.Infrastructure.csproj.AssemblyReference.cache
 C:\Project\inventory\Inventory.Backend\Inventory.Infrastructure\obj\Debug\net10.0\Inventor.89798F14.Up2Date
 C:\Project\inventory\Inventory.Backend\Inventory.Infrastructure\obj\Debug\net10.0\Inventory.Infrastructure.genruntimeconfig.cache
+c:\Project\inventory\Inventory.Backend\Inventory.Infrastructure\obj\Debug\net10.0\Inventory.Infrastructure.sourcelink.json

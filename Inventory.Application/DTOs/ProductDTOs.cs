@@ -7,11 +7,16 @@ public record ProductDto
 {
     public Guid Id { get; init; }
     public string Name { get; init; } = string.Empty;
+    public string Description { get; init; } = string.Empty;
     public decimal Price { get; init; }
     public int Stock { get; init; }
     public int StockMinimal { get; init; }
     public bool IsActive { get; init; }
     public bool HasLowStock { get; init; }
+    public Guid CategoryId { get; init; }
+    public string CategoryName { get; init; } = string.Empty;
+    public Guid SupplierId { get; init; }
+    public string SupplierName { get; init; } = string.Empty;
     public DateTime CreatedAt { get; init; }
     public DateTime UpdatedAt { get; init; }
 }
@@ -22,6 +27,9 @@ public record CreateProductDto
     [Required(ErrorMessage = "El nombre es requerido")]
     [StringLength(200, MinimumLength = 3, ErrorMessage = "El nombre debe tener entre 3 y 200 caracteres")]
     public string Name { get; init; } = string.Empty;
+
+    [StringLength(1000, ErrorMessage = "La descripción no puede exceder 1000 caracteres")]
+    public string Description { get; init; } = string.Empty;
 
     [Required]
     [Range(0, double.MaxValue, ErrorMessage = "El precio debe ser mayor o igual a 0")]
@@ -34,6 +42,12 @@ public record CreateProductDto
     [Required]
     [Range(0, int.MaxValue, ErrorMessage = "El stock mínimo debe ser mayor o igual a 0")]
     public int StockMinimal { get; init; }
+
+    [Required(ErrorMessage = "La categoría es requerida")]
+    public Guid CategoryId { get; init; }
+
+    [Required(ErrorMessage = "El proveedor es requerido")]
+    public Guid SupplierId { get; init; }
 }
 
 // DTO para actualizar producto
@@ -41,6 +55,9 @@ public record UpdateProductDto
 {
     [StringLength(200, MinimumLength = 3)]
     public string? Name { get; init; }
+
+    [StringLength(1000)]
+    public string? Description { get; init; }
 
     [Range(0, double.MaxValue)]
     public decimal? Price { get; init; }
@@ -50,6 +67,10 @@ public record UpdateProductDto
 
     [Range(0, int.MaxValue)]
     public int? StockMinimal { get; init; }
+
+    public Guid? CategoryId { get; init; }
+
+    public Guid? SupplierId { get; init; }
 
     public bool? IsActive { get; init; }
 }

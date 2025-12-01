@@ -65,6 +65,38 @@ public class ProductsController : ControllerBase
         }
     }
 
+    // GET: api/products/category/{categoryId}
+    [HttpGet("category/{categoryId}")]
+    public async Task<ActionResult<IEnumerable<ProductDto>>> GetByCategory(Guid categoryId)
+    {
+        try
+        {
+            var products = await _productService.GetByCategoryAsync(categoryId);
+            return Ok(products);
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error al obtener productos por categoría {CategoryId}", categoryId);
+            return StatusCode(500, "Error interno del servidor");
+        }
+    }
+
+    // GET: api/products/supplier/{supplierId}
+    [HttpGet("supplier/{supplierId}")]
+    public async Task<ActionResult<IEnumerable<ProductDto>>> GetBySupplier(Guid supplierId)
+    {
+        try
+        {
+            var products = await _productService.GetBySupplierAsync(supplierId);
+            return Ok(products);
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error al obtener productos por proveedor {SupplierId}", supplierId);
+            return StatusCode(500, "Error interno del servidor");
+        }
+    }
+
     // GET: api/products/{id}
     [HttpGet("{id}")]
     public async Task<ActionResult<ProductDto>> GetById(Guid id)
@@ -96,6 +128,10 @@ public class ProductsController : ControllerBase
             var product = await _productService.CreateAsync(dto);
             return CreatedAtAction(nameof(GetById), new { id = product.Id }, product);
         }
+        catch (InvalidOperationException ex)
+        {
+            return BadRequest(ex.Message);
+        }
         catch (Exception ex)
         {
             _logger.LogError(ex, "Error al crear producto");
@@ -117,6 +153,10 @@ public class ProductsController : ControllerBase
                 return NotFound($"Producto con ID {id} no encontrado");
 
             return Ok(product);
+        }
+        catch (InvalidOperationException ex)
+        {
+            return BadRequest(ex.Message);
         }
         catch (Exception ex)
         {

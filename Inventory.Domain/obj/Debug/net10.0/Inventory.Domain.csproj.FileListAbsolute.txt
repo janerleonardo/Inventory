@@ -9,3 +9,4 @@ c:\Project\inventory\Inventory.Backend\Inventory.Domain\obj\Debug\net10.0\Invent
 c:\Project\inventory\Inventory.Backend\Inventory.Domain\obj\Debug\net10.0\refint\Inventory.Domain.dll
 c:\Project\inventory\Inventory.Backend\Inventory.Domain\obj\Debug\net10.0\Inventory.Domain.pdb
 C:\Project\inventory\Inventory.Backend\Inventory.Domain\obj\Debug\net10.0\ref\Inventory.Domain.dll
+c:\Project\inventory\Inventory.Backend\Inventory.Domain\obj\Debug\net10.0\Inventory.Domain.sourcelink.json

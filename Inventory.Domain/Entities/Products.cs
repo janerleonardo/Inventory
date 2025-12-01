@@ -1,9 +1,10 @@
 namespace Inventory.Domain.Entities;
 
-public  class Product
+public class Product
 {
     public Guid Id { get; set; }
     public string Name { get; set; } = string.Empty;
+    public string Description { get; set; } = string.Empty;
     public decimal Price { get; set; }
     public int Stock { get; set; }
     public int StockMinimal { get; set; }
@@ -11,9 +12,18 @@ public  class Product
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
     public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
 
+    // Foreign Keys
+    public Guid CategoryId { get; set; }
+    public Guid SupplierId { get; set; }
 
+    // Navigation Properties
+    public Category Category { get; set; } = null!;
+    public Supplier Supplier { get; set; } = null!;
+
+    // Método para verificar stock bajo
     public bool HasLowStock() => Stock < StockMinimal;
 
+    // Método para decrementar stock
     public void DecrementStock(int amount)
     {
         if (amount <= 0)
@@ -43,6 +53,7 @@ public  class Product
         UpdatedAt = DateTime.UtcNow;
     }
 
+    // Método para actualizar precio
     public void UpdatePrice(decimal newPrice)
     {
         if (newPrice < 0)
@@ -53,5 +64,4 @@ public  class Product
         Price = newPrice;
         UpdatedAt = DateTime.UtcNow;
     }
-
 }
