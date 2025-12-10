@@ -49,9 +49,23 @@ public class ProductsController : ControllerBase
         }
     }
 
-    // GET: api/products/low-stock
+    [HttpGet("Count")]
+    public async Task<ActionResult<bool>> GetCount()
+    {
+        try
+        {
+            var products = await _productService.GetCountProductsAsync();
+            return Ok(products);
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error al obtener numero de productos");
+            return StatusCode(500, "Error interno del servidor");
+        }
+    }
+
     [HttpGet("low-stock")]
-    public async Task<ActionResult<IEnumerable<ProductDto>>> GetLowStock()
+    public async Task<ActionResult<IEnumerable<ProductDto>>> GetLowStockProducts()
     {
         try
         {
@@ -60,10 +74,13 @@ public class ProductsController : ControllerBase
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex, "Error al obtener productos con stock bajo");
+            _logger.LogError(ex, "Error al obtener numero de productos");
             return StatusCode(500, "Error interno del servidor");
         }
     }
+
+    
+
 
     // GET: api/products/category/{categoryId}
     [HttpGet("category/{categoryId}")]

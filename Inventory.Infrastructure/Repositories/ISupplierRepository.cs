@@ -14,6 +14,7 @@ public interface ISupplierRepository
     Task<bool> DeleteAsync(Guid id);
     Task<bool> ExistsAsync(Guid id);
     Task<bool> HasProductsAsync(Guid id);
+    
 }
 
 public class SupplierRepository : ISupplierRepository

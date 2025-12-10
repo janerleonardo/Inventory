@@ -119,4 +119,9 @@ public class ProductRepository : IProductRepository
     {
         return await _context.Products.AnyAsync(p => p.Id == id);
     }
+
+    public async Task<int> GetCountProductsAsync()
+    {
+         return await _context.Products.CountAsync(x=> x.IsActive);
+    }
 }

@@ -167,4 +167,9 @@ public class ProductService : IProductService
             UpdatedAt = product.UpdatedAt
         };
     }
+
+    public async Task<int> GetCountProductsAsync()
+    {
+        return await _productRepository.GetCountProductsAsync();
+    }
 }

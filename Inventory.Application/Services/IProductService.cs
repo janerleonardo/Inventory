@@ -10,6 +10,7 @@ public interface IProductService
     Task<ProductDto?> GetByIdAsync(Guid id);
     Task<IEnumerable<ProductDto>> GetAllAsync();
     Task<IEnumerable<ProductDto>> GetActiveProductsAsync();
+    Task<int> GetCountProductsAsync();
     Task<IEnumerable<ProductDto>> GetLowStockProductsAsync();
     Task<IEnumerable<ProductDto>> GetByCategoryAsync(Guid categoryId);
     Task<IEnumerable<ProductDto>> GetBySupplierAsync(Guid supplierId);

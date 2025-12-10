@@ -9,6 +9,7 @@ public interface IProductRepository
     Task<Product?> GetByIdAsync(Guid id);
     Task<IEnumerable<Product>> GetAllAsync();
     Task<IEnumerable<Product>> GetActiveProductsAsync();
+    Task<int> GetCountProductsAsync();
     Task<IEnumerable<Product>> GetLowStockProductsAsync();
     Task<IEnumerable<Product>> GetByCategoryAsync(Guid categoryId);
     Task<IEnumerable<Product>> GetBySupplierAsync(Guid supplierId);
